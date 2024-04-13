@@ -6,7 +6,7 @@ using UnityEngine.Assertions.Must;
 public class ArrayCreation : MonoBehaviour
 {
     // Start is called before the first frame update
-    int[] numArray = { 0, 1, 2, 3, 0, 1, 2, 3 };
+    int[] numArray = { 0, 2, 3, 0, 0, 1, 2, 3 };
     bool[] boolArray = { false, false, false, false, false, false, false, false };
 
     public void Start()
