@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class WindowGenerator : MonoBehaviour
 {
     public GameObject[] windowPrefabs;
     public Canvas canvas;
+    public WindowManager windowManager;
+
 
     public int maxWindows = 5; // Maximum number of windows allowed
 
@@ -22,11 +25,19 @@ public class WindowGenerator : MonoBehaviour
     public float yRangeMin = -3f;
     public float yRangeMax = 3f;
 
+    int availableSlots;
+
     private List<GameObject> spawnedWindows = new List<GameObject>(); // Track spawned windows
 
     private void Start()
     {
         StartCoroutine(GenerateWindowsOverTime());
+    }
+
+    private void Update()
+    {
+        availableSlots = maxWindows - spawnedWindows.Count;
+        CleanUpDisabledWindows(availableSlots);
     }
 
     IEnumerator GenerateWindowsOverTime()
@@ -36,11 +47,6 @@ public class WindowGenerator : MonoBehaviour
             int spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
             yield return new WaitForSeconds(spawnInterval);
 
-            // Check for available slots and disabled windows
-            int availableSlots = maxWindows - spawnedWindows.Count;
-            CleanUpDisabledWindows(availableSlots);
-
-            // Spawn windows if slots are available
 
             if (availableSlots > 0) // Only spawn if there's at least 1 slot
             {
@@ -64,6 +70,8 @@ public class WindowGenerator : MonoBehaviour
         windowInstance.transform.SetParent(canvas.transform, true);
         windowInstance.transform.position = GetSpawnPosition();
 
+        windowManager.RegisterWindow(windowInstance.GetComponent<Window>());
+        spawnedWindows.Add(windowInstance);
         return windowInstance;
     }
 
@@ -90,6 +98,10 @@ public class WindowGenerator : MonoBehaviour
             {
                 spawnedWindows.RemoveAt(i);
                 Destroy(window); // Destroy the disabled window
+
+                // Unregister with WindowManager
+                windowManager.UnregisterWindow(window.GetComponent<Window>());
+
                 availableSlots++; // Update available slots
                 if (availableSlots >= maxWindows) // Early exit if enough slots found
                 {
