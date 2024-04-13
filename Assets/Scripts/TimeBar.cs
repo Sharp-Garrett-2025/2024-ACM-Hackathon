@@ -5,28 +5,36 @@ using UnityEngine.UI;
 
 public class TimerBar : MonoBehaviour
 {
-    public float maxTime = 30f;
-    private float timeLeft;
-    private Image timerBar;
+    public Slider timerSlider;
+    //public Text timerText;
+    public float gameTime;
 
+    private bool stopTimer;
     void Start()
     {
-        timerBar = GetComponent<Image>();
-        timeLeft = maxTime;
+
+        timerSlider.maxValue = gameTime;
+        timerSlider.value = gameTime;
+
+
     }
 
     void Update()
     {
-        if (timeLeft > 0)
+        float time = gameTime - Time.time;
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time - minutes * 60);
+        //string textTime = string.Format("{0:0}: {0:0}", minutes, seconds);
+
+        if(time <= 0)
         {
-            timeLeft -= Time.deltaTime;
-            timerBar.fillAmount = timeLeft / maxTime;
+            stopTimer = true;
         }
         else
         {
-            // Optionally handle what happens when the time runs out
-            Debug.Log("Time's up!");
+            //timerText.text = textTime;
+            timerSlider.value = time;
+
         }
     }
 }
-
