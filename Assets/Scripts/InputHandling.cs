@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Device;
-
+//oh mein good ze system iss modular undt vorkingkt
 public class InputHandling : MonoBehaviour
 {
     public ArrayCreation arrayObject;
@@ -13,7 +13,7 @@ public class InputHandling : MonoBehaviour
     public Vector2 startPosition;
     int index = 0;
     public Color newColor = Color.yellow;
-    public SpriteRenderer spriteRenderer;
+    public Sprite[] yellowSpriteArray;
     //int[] numArray = arrayObject.GetNumArray();
     // Start is called before the first frame update
 
@@ -111,7 +111,7 @@ public class InputHandling : MonoBehaviour
         SpriteRenderer spriteRenderer = instantiatedArrows[i].GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = Color.yellow;  // Set the color to yellow, or any other color as needed
+            spriteRenderer.sprite = yellowSpriteArray[numArray[i]];  // Set the color to yellow, or any other color as needed
         }
     }
 }
