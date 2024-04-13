@@ -14,7 +14,8 @@ public class InputHandling : MonoBehaviour
     int index = 0;
     public Color newColor = Color.yellow;
     public Sprite[] yellowSpriteArray;
-    //int[] numArray = arrayObject.GetNumArray();
+    public float xOffSet = 1.2f;
+    public float yOffSet = 0f;
     // Start is called before the first frame update
 
     private void Start()
@@ -23,7 +24,7 @@ public class InputHandling : MonoBehaviour
         boolArray = arrayObject.GetBoolArray();
         instantiatedArrows = new GameObject[numArray.Length];
         startPosition = new Vector2(-5, 0);
-        Draw();
+        Draw(ref xOffSet, ref yOffSet);
     }
 
     // Update is called once per frame
@@ -34,8 +35,6 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 0)
             {
-                Debug.Log("upArrow");
-                Debug.Log("success");
                 boolArray[index] = true;
                 UpdateArrow(index);
                 index++;
@@ -45,8 +44,6 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 1)
             {
-                Debug.Log("leftArrow");
-                Debug.Log("success");
                 boolArray[index] = true;
                 UpdateArrow(index);
                 index++;
@@ -56,8 +53,6 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 2)
             {
-                Debug.Log("downArrow");
-                Debug.Log("success");
                 boolArray[index] = true;
                 UpdateArrow(index);
                 index++;
@@ -67,51 +62,57 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 3)
             {
-                Debug.Log("rightArrow");
-                Debug.Log("success");
                 boolArray[index] = true;
                 UpdateArrow(index);
                 index++;
             }
         }
     }
-    void Draw()
+void Draw(ref float xOffSet, ref float yOffSet)
+{
+    float xIterator = 0; // Initialize xIterator to 0
+    for (int i = 0; i < numArray.Length; i++)
     {
-        float offset = 1.2f;
-        for(int i = 0; i < numArray.Length; i++)
-        {
-            if (boolArray[i] == false)
-            {
-                //Debug.Log("WhiteArrow");
-                Vector2 spawnPosition = startPosition + new Vector2(offset * i, 0);
-                instantiatedArrows[i] = Instantiate(arrowPrefabs[numArray[i]], spawnPosition, Quaternion.identity);
-                instantiatedArrows[i].transform.SetParent(this.transform);
-            }
-            else
-            {
-                //Debug.Log("YellowArror");
-                // Needs color still
-                Vector2 spawnPosition = startPosition + new Vector2(offset * i, 0);
-                instantiatedArrows[i] = Instantiate(arrowPrefabs[numArray[i]], spawnPosition, Quaternion.identity);
-                instantiatedArrows[i].transform.SetParent(this.transform);
+        // Calculate the spawn position for each arrow
+        Vector2 spawnPosition = startPosition + new Vector2(xOffSet * xIterator, yOffSet);
 
-            }
-            //startPosition += new Vector2(100, 0);
+        // Instantiate the arrow at the calculated position
+        instantiatedArrows[i] = Instantiate(arrowPrefabs[numArray[i]], spawnPosition, Quaternion.identity);
+        instantiatedArrows[i].transform.SetParent(this.transform);
+
+        // Increment the xIterator for the next arrow's position
+        xIterator++;
+
+        // Check if the row should be changed (every 10 arrows, starting after the 10th arrow)
+        if (i != 0 && (i + 1) % 10 == 0)
+        {
+            yOffSet -= 1.0f; // Move the next row down
+            xIterator = 0; // Reset the horizontal position for the new row
         }
     }
+}
+
 
     void UpdateArrow(int i)
     {
         if (instantiatedArrows[i] != null)
-            Destroy(instantiatedArrows[i]); // Ensure the old arrow is destroyed.
-        float offset = 1.2f;
-        Vector2 spawnPosition = startPosition + new Vector2(offset * i, 0);
-        instantiatedArrows[i] = Instantiate(arrowPrefabs[numArray[i]], spawnPosition, Quaternion.identity);
-        instantiatedArrows[i].transform.SetParent(this.transform);
-        SpriteRenderer spriteRenderer = instantiatedArrows[i].GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = yellowSpriteArray[numArray[i]];  // Set the color to yellow, or any other color as needed
+            // Get ze kurrent position uff ze arrow before destroyingkt it
+            Vector2 currentPosition = instantiatedArrows[i].transform.position;
+
+            // Destroy ze old arrow
+            Destroy(instantiatedArrows[i]);
+
+            // Instantiate ze new arrow at ze same position as ve are chust r-r-redrawingkt a yellow arrow in ze same place
+            instantiatedArrows[i] = Instantiate(arrowPrefabs[numArray[i]], currentPosition, Quaternion.identity); //Oh hi Josh
+            instantiatedArrows[i].transform.SetParent(this.transform);
+
+            // Ve khange ze spriteR-r-renderingkt Komponent usingkt an array uff sprite r-r-renders makingkt a logical association mitt ze index uff ze array to vhich arrow ve use
+            SpriteRenderer spriteRenderer = instantiatedArrows[i].GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = yellowSpriteArray[numArray[i]]; //numArray[i] r-r-returns an int schtored in ze array vhich zen picks out ze associated arrow from our arrow array, pretty kool huh!
+            }
         }
     }
 }

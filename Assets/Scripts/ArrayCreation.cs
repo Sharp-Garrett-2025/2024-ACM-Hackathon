@@ -1,17 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 
 public class ArrayCreation : MonoBehaviour
 {
     // Start is called before the first frame update
-    int[] numArray = { 0, 2, 3, 0, 0, 1, 2, 3 };
-    bool[] boolArray = { false, false, false, false, false, false, false, false };
+    int[] numArray;
 
-    public void Start()
+    bool[] boolArray;
+
+    public void Awake()
     {
-
+        numArray = new int[50];
+        boolArray = new bool[50];
+        for (int i = 0; i < numArray.Length; i++) 
+        {
+            numArray[i] = UnityEngine.Random.Range(0, 3);
+            boolArray[i] = false;
+        }
     }
 
     public int[] GetNumArray()
