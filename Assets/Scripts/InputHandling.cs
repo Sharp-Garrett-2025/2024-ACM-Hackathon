@@ -12,8 +12,8 @@ public class InputHandling : MonoBehaviour
     private GameObject[] instantiatedArrows;
     public Vector2 startPosition;
     int index = 0;
-    public Color newColor = Color.yellow;
     public Sprite[] yellowSpriteArray;
+    public Sprite[] redSpriteArray;
     public float xOffSet = 1.2f;
     public float yOffSet = 0f;
     // Start is called before the first frame update
@@ -36,36 +36,41 @@ public class InputHandling : MonoBehaviour
             if (index <= numArray.Length - 1 && numArray[index] == 0)
             {
                 boolArray[index] = true;
-                UpdateArrow(index);
+                UpdateArrow(index, true);
                 index++;
             }
+            else {UpdateArrow(index, false);}
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             if (index <= numArray.Length - 1 && numArray[index] == 1)
             {
                 boolArray[index] = true;
-                UpdateArrow(index);
+                UpdateArrow(index, true);
                 index++;
             }
+            else
+            {UpdateArrow(index, false);}
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
             if (index <= numArray.Length - 1 && numArray[index] == 2)
             {
                 boolArray[index] = true;
-                UpdateArrow(index);
+                UpdateArrow(index, true);
                 index++;
             }
+            else {UpdateArrow(index, false);}
         }
         if( Input.GetKeyDown(KeyCode.D))
         {
             if (index <= numArray.Length - 1 && numArray[index] == 3)
             {
                 boolArray[index] = true;
-                UpdateArrow(index);
+                UpdateArrow(index, true);
                 index++;
             }
+            else { UpdateArrow(index, false);}
         }
     }
 void Draw(ref float xOffSet, ref float yOffSet)
@@ -93,7 +98,7 @@ void Draw(ref float xOffSet, ref float yOffSet)
 }
 
 
-    void UpdateArrow(int i)
+    void UpdateArrow(int i, bool correctInput)
     {
         if (instantiatedArrows[i] != null)
         {
@@ -109,10 +114,15 @@ void Draw(ref float xOffSet, ref float yOffSet)
 
             // Ve khange ze spriteR-r-renderingkt Komponent usingkt an array uff sprite r-r-renders makingkt a logical association mitt ze index uff ze array to vhich arrow ve use
             SpriteRenderer spriteRenderer = instantiatedArrows[i].GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
+            if (spriteRenderer != null && correctInput)
             {
                 spriteRenderer.sprite = yellowSpriteArray[numArray[i]]; //numArray[i] r-r-returns an int schtored in ze array vhich zen picks out ze associated arrow from our arrow array, pretty kool huh!
             }
+            else
+            {
+                spriteRenderer.sprite = redSpriteArray[numArray[i]];
+            }
         }
     }
+
 }

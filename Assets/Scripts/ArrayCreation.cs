@@ -8,9 +8,8 @@ using UnityEngine.Assertions.Must;
 
 public class ArrayCreation : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //we create 
     int[] numArray;
-
     bool[] boolArray;
 
     public void Awake()
