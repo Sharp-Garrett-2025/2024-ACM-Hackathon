@@ -16,10 +16,12 @@ public class InputHandling : MonoBehaviour
     public Sprite[] redSpriteArray;
     public float xOffSet = 1.2f;
     public float yOffSet = 0f;
+    public WindowManager windowManager;
     // Start is called before the first frame update
 
     private void Start()
     {
+        GameObject windowManager = GameObject.Find("Window Manager");
         numArray = arrayObject.GetNumArray();
         boolArray = arrayObject.GetBoolArray();
         instantiatedArrows = new GameObject[numArray.Length];
@@ -31,7 +33,7 @@ public class InputHandling : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 0)
             {
@@ -41,7 +43,7 @@ public class InputHandling : MonoBehaviour
             }
             else {UpdateArrow(index, false);}
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 1)
             {
@@ -52,7 +54,7 @@ public class InputHandling : MonoBehaviour
             else
             {UpdateArrow(index, false);}
         }
-        if(Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.S) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 2)
             {
@@ -62,7 +64,7 @@ public class InputHandling : MonoBehaviour
             }
             else {UpdateArrow(index, false);}
         }
-        if( Input.GetKeyDown(KeyCode.D))
+        if( Input.GetKeyDown(KeyCode.D) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 3)
             {
