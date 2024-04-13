@@ -255,7 +255,11 @@ MonoBehaviour:
   - {fileID: 1666296694675004057, guid: 39263eb9c82b0d74393543be94d40d10, type: 3}
   startPosition: {x: 0, y: 0}
   newColor: {r: 0.9889995, g: 1, b: 0, a: 1}
-  spriteRenderer: {fileID: 0}
+  yellowSpriteArray:
+  - {fileID: 21300000, guid: 06020f849bb307346818271857ef33e9, type: 3}
+  - {fileID: 21300000, guid: 3192ada0134bf8945bec8072ba59b383, type: 3}
+  - {fileID: 21300000, guid: 2ad789fd4ce1922489c71c68c3b3f9e7, type: 3}
+  - {fileID: 21300000, guid: 6f38ec390883f80489bfb68c113beac3, type: 3}
 --- !u!4 &1313971049
 Transform:
   m_ObjectHideFlags: 0
