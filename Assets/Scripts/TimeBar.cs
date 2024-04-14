@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class TimerBar : MonoBehaviour
 {
     public Slider timerSlider;
+
     //public Text timerText;
     public float gameTime;
 
-    public bool timerIsRunning = false;  // Control whether the timer is running
+    public bool timerIsRunning;  // Control whether the timer is running
 
     public float timeRemaining;
+
+    public bool gameFailed;
 
     private void Start()
     {
@@ -19,6 +22,7 @@ public class TimerBar : MonoBehaviour
         timerSlider.maxValue = gameTime;
         timerSlider.value = gameTime;
         timeRemaining = gameTime; // Initialize remaining time
+        gameFailed = false;
     }
 
     public void OnTimerStart()
@@ -45,6 +49,7 @@ public class TimerBar : MonoBehaviour
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false; // Stop the timer
+                gameFailed = true;
                 UpdateTimerDisplay(timeRemaining);
                 // Perform any actions after the timer runs out
             }
@@ -61,4 +66,8 @@ public class TimerBar : MonoBehaviour
         // Optionally update the text display if you uncomment the Text timerText and its reference
         //timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    bool getGameFailed()
+    { return gameFailed; }
+
 }
