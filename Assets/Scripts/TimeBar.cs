@@ -70,4 +70,6 @@ public class TimerBar : MonoBehaviour
     bool getGameFailed()
     { return gameFailed; }
 
+    public void subtractTime()
+    { timeRemaining -= 0.5f; }
 }
