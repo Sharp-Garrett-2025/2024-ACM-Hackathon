@@ -9,7 +9,7 @@ public class InputHandling : MonoBehaviour
     public int[] numArray;
     public GameObject[] arrowPrefabs;
     private GameObject[] instantiatedArrows;
-    public Vector2 startPosition;
+    public Vector3 startPosition;
     public int index = 0;
     public int length;
     public Sprite[] yellowSpriteArray;
@@ -26,7 +26,6 @@ public class InputHandling : MonoBehaviour
         numArray = arrayObject.GetNumArray();
         instantiatedArrows = new GameObject[numArray.Length];
         length = numArray.Length;
-        startPosition = new Vector2(-4, 2);
         Draw(ref xOffSet, ref yOffSet);
 
     }
@@ -83,7 +82,7 @@ void Draw(ref float xOffSet, ref float yOffSet)
     for (int i = 0; i < numArray.Length; i++)
     {
         // Calculate the spawn position for each arrow
-        Vector2 spawnPosition = startPosition + new Vector2(xOffSet * xIterator, yOffSet);
+        Vector3 spawnPosition = startPosition + new Vector3(xOffSet * xIterator, yOffSet);
 
         // Instantiate the arrow at the calculated position
         instantiatedArrows[i] = Instantiate(arrowPrefabs[numArray[i]], spawnPosition, Quaternion.identity);
@@ -108,7 +107,7 @@ void Draw(ref float xOffSet, ref float yOffSet)
         if (instantiatedArrows[i] != null)
         {
             // Get ze kurrent position uff ze arrow before destroyingkt it
-            Vector2 currentPosition = instantiatedArrows[i].transform.position;
+            Vector3 currentPosition = instantiatedArrows[i].transform.position;
 
             // Destroy ze old arrow
             Destroy(instantiatedArrows[i]);
