@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.861, y: 0.624}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 4.0256, y: 0.7335}
+  m_SizeDelta: {x: 158.9978, y: 115.4519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3738242929538930490
 MonoBehaviour:
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4849196377136760346}
+      - m_Target: {fileID: 5055144261801205881}
         m_TargetAssemblyTypeName: Window, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -187,10 +187,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 299192376673161129}
+  - component: {fileID: 5055144261801205881}
   - component: {fileID: 7726172797648455848}
-  - component: {fileID: -4849196377136760346}
   m_Layer: 8
-  m_Name: MovingPopup2
+  m_Name: BasicPopup8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,8 +205,8 @@ Transform:
   m_GameObject: {fileID: 4151061422655352220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011962891, y: -0.15252686, z: -0.0057921796}
-  m_LocalScale: {x: 1.67, y: 1.67, z: 1.67}
+  m_LocalPosition: {x: 0.0029572, y: -0.037704, z: -0.0014318}
+  m_LocalScale: {x: 0.9171974, y: 0.9171974, z: 0.9171974}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1294533446858163843}
@@ -215,6 +215,21 @@ Transform:
   - {fileID: 3544436393810316934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5055144261801205881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151061422655352220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed13e2486872404c8ccfe3fd1bf8a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeButton: {fileID: 3738242929538930490}
+  okButton: {fileID: 6754526755245674267}
+  windowManager: {fileID: 0}
 --- !u!82 &7726172797648455848
 AudioSource:
   m_ObjectHideFlags: 0
@@ -225,7 +240,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 016d1eaac524d524fb10469c2b6122e5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ccd783b5b75ad2a4fb4abedcafc801c0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -311,29 +326,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-4849196377136760346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151061422655352220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb8cafca82d77fb45aac4d4591889688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeButton: {fileID: 3738242929538930490}
-  okButton: {fileID: 6754526755245674267}
-  windowManager: {fileID: 0}
-  movementSpeed: 5
-  screenBounds:
-    serializedVersion: 2
-    x: -5
-    y: -3
-    width: 5
-    height: 5
-  movementDirection: {x: 0, y: 0}
 --- !u!1 &6725194157975159273
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,8 +362,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0103, y: -0.2279}
-  m_SizeDelta: {x: 213.2881, y: 26.8742}
+  m_AnchoredPosition: {x: -0.0394, y: -0.28}
+  m_SizeDelta: {x: 127.4649, y: 28.1564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6754526755245674267
 MonoBehaviour:
@@ -417,7 +409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4849196377136760346}
+      - m_Target: {fileID: 5055144261801205881}
         m_TargetAssemblyTypeName: Window, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -590,7 +582,7 @@ SpriteRenderer:
   m_SortingLayerID: -1331354365
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ecc3fd4b3693ad340bf30d6291bae750, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6b8083655efe254caa7bb9d2fff58cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
