@@ -36,6 +36,7 @@ public class LevelController : MonoBehaviour
     public GameObject bossNote;
     public GameObject bossIcon;
     public GameObject shotClippy;
+    public GameObject StartupScreen;
 
     public InputHandling level0InputHandler;
     public InputHandling level1InputHandler;
@@ -61,10 +62,16 @@ public class LevelController : MonoBehaviour
         level2Pass = false;
 
         endCurrent = false;
+
+        StartCoroutine(WaitForStartup());
         // Order of operations
         // Login screen setup code
     }
-
+    IEnumerator WaitForStartup()
+    {
+        yield return new WaitForSeconds(5);
+        StartupScreen.SetActive(false);
+    }
     public void OnDesktop()
     {
         //windowManager.SetActive(true);
@@ -82,20 +89,20 @@ public class LevelController : MonoBehaviour
 
     public void clippyMessage()
     {
+        bossNote.SetActive(false);
         StartCoroutine(WaitForMessage2());
     }
 
     IEnumerator WaitForMessage2()
     {
         //print(Time.time);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         clippyPopupOne.SetActive(true);
         //print(Time.time);
     }
     public void OnClippyPart1()
     {
         clippyPopupOne.SetActive(false);
-        bossNote.SetActive(false);
         hackTextLevel1.SetActive(true);
     }
     public void clippyMessage2()
@@ -105,7 +112,7 @@ public class LevelController : MonoBehaviour
     IEnumerator WaitForMessage3()
     {
         //print(Time.time);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         clippyPopupTwo.SetActive(true);
         //print(Time.time);
     }
@@ -113,10 +120,6 @@ public class LevelController : MonoBehaviour
     public void OnClippyPart2()
     {
         clippyPopupTwo.SetActive(false);
-        CMD.SetActive(false);
-        MasterControler1.SetActive(false);
-        Slider1.SetActive(false);
-        MasterControler1.GetComponent<TimerBar>().OnTimerStop();
         hackTextLevel2.SetActive(true);
     }
 
@@ -126,6 +129,7 @@ public class LevelController : MonoBehaviour
     {
         Debug.Log("Level1 Started");
         level1Current = true;
+        Slider1.SetActive(true);
         hackTextLevel1.SetActive(false);
         windowManager.SetActive(true);
         MasterControler1.SetActive(true);
@@ -191,7 +195,11 @@ public class LevelController : MonoBehaviour
         if (level1InputHandler.getLeveledPassed() && !level2InputHandler.getLeveledPassed() && !level2Current)
         {
             level2Current = true;
-            OnClippyPart2();
+            CMD.SetActive(false);
+            MasterControler1.SetActive(false);
+            Slider1.SetActive(false);
+            MasterControler1.GetComponent<TimerBar>().OnTimerStop();
+            clippyMessage2();
         }
         if(level2InputHandler.getLeveledPassed() && !endCurrent)
         {
