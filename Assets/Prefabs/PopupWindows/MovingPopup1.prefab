@@ -83,7 +83,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1703925608733951256}
         m_TargetAssemblyTypeName: Window, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1703925608733951256}
         m_TargetAssemblyTypeName: Window, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
