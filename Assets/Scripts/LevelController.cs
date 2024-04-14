@@ -10,12 +10,16 @@ public class LevelController : MonoBehaviour
 
     public bool level1Current;
     public bool level2Current;
+    public bool endCurrent;
 
     public GameObject Slider1;
     public GameObject Slider2;
 
     public GameObject hackTextLevel1;
     public GameObject hackTextLevel2;
+    public GameObject CMD;
+    public GameObject bossPopup;
+    public GameObject bossMessage;
 
     public InputHandling level1InputHandler;
     public InputHandling level2InputHandler;
@@ -24,6 +28,9 @@ public class LevelController : MonoBehaviour
     {
         MasterControler1.SetActive(false);
         MasterControler2.SetActive(false);
+        level1Current = false;
+        level2Current = false;
+        endCurrent = false;
         // Order of operations
         // Login screen setup code
     }
@@ -60,6 +67,24 @@ public class LevelController : MonoBehaviour
         Slider2.SetActive(true);
         MasterControler2.GetComponent<TimerBar>().OnTimerStart();
     }
+
+    public void OnStartEnd()
+    {
+        Debug.Log("end game");
+        endCurrent = true;
+        CMD.SetActive(false);
+        MasterControler2.SetActive(false);
+        Slider2.SetActive(false);
+        MasterControler2.GetComponent<TimerBar>().OnTimerStop();
+        // Wait for about 4 seconds
+        bossPopup.SetActive(true);
+    }
+
+    public void OnBossMessage()
+    {
+        bossPopup.SetActive(false);
+        bossMessage.SetActive(true);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -73,12 +98,9 @@ public class LevelController : MonoBehaviour
             OnClippyPart2();
         }
 
-        if(level2InputHandler.getLeveledPassed())
+        if(level2InputHandler.getLeveledPassed() && !endCurrent)
         {
-            MasterControler2.SetActive(false);
-            Slider2.SetActive(false);
-            MasterControler2.GetComponent<TimerBar>().OnTimerStop();
-            Debug.Log("end game");
+
         }
 
 
