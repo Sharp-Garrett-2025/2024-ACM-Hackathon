@@ -14,7 +14,7 @@ TagManager:
   - CMD Layer
   - Arrows
   - Popup
-  - 
+  - Sign In
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: CMD Layer
     uniqueID: 2799027643
+    locked: 0
+  - name: Sign in
+    uniqueID: 817923425
     locked: 0
   - name: Arrows
     uniqueID: 2033781607
