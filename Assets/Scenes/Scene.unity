@@ -3187,7 +3187,6 @@ MonoBehaviour:
   windowManager: {fileID: 1769898505}
   levelPassed: 0
   wrongArrow: {fileID: 8300000, guid: dcda429d6137be94aa45163dbb7d4a8f, type: 3}
-  blockSound: {fileID: 0}
 --- !u!224 &1020324424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4162,7 +4161,6 @@ MonoBehaviour:
   windowManager: {fileID: 1769898505}
   levelPassed: 0
   wrongArrow: {fileID: 8300000, guid: dcda429d6137be94aa45163dbb7d4a8f, type: 3}
-  blockSound: {fileID: 0}
 --- !u!224 &1313971049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4689,7 +4687,6 @@ MonoBehaviour:
   windowManager: {fileID: 1769898505}
   levelPassed: 0
   wrongArrow: {fileID: 8300000, guid: dcda429d6137be94aa45163dbb7d4a8f, type: 3}
-  blockSound: {fileID: 8300000, guid: c5eed33c2931d014a8dcb04259a6de3d, type: 3}
 --- !u!224 &1601208408
 RectTransform:
   m_ObjectHideFlags: 0

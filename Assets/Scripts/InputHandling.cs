@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Device;
+using UnityEngine.UIElements;
 //oh mein good ze system iss modular undt vorkingkt
 public class InputHandling : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class InputHandling : MonoBehaviour
     public WindowManager windowManager;
     public bool levelPassed = false;
     public AudioClip wrongArrow; // Assign this in the Inspector
-    public AudioClip blockSound;
     private AudioSource audioSource;
 
 
@@ -130,6 +130,9 @@ void Draw(ref float xOffSet, ref float yOffSet)
             if (spriteRenderer != null && correctInput)
             {
                 spriteRenderer.sprite = yellowSpriteArray[numArray[i]]; //numArray[i] r-r-returns an int schtored in ze array vhich zen picks out ze associated arrow from our arrow array, pretty kool huh!
+                Vector3 currentScale = spriteRenderer.transform.localScale; // Get current scale
+                Vector3 addedScale = new Vector3(currentScale.x * 1.2f, currentScale.y * 1.2f, currentScale.z * 1.2f); // Scale up by 1.5 times
+                spriteRenderer.transform.localScale = addedScale; // Apply the new scale
             }
             else
             {
