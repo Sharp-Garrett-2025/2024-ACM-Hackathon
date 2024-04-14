@@ -15,7 +15,7 @@ TagManager:
   - Arrows
   - Popup
   - Sign In
-  - 
+  - loss screen
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Popup
     uniqueID: 2963612931
+    locked: 0
+  - name: loss screen
+    uniqueID: 2230900665
     locked: 0

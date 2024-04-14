@@ -11,6 +11,7 @@ public class LevelController : MonoBehaviour
 
     public GameObject windowManager;
 
+    public bool gameFail;
     public bool level0Pass;
     public bool level1Pass;
     public bool level2Pass;
@@ -29,6 +30,7 @@ public class LevelController : MonoBehaviour
     public GameObject CMD;
     public GameObject bossPopup;
     public GameObject bossMessage;
+    public GameObject endScreenImage;
 
     public InputHandling level0InputHandler;
     public InputHandling level1InputHandler;
@@ -46,6 +48,7 @@ public class LevelController : MonoBehaviour
         level0Current = true; 
         level1Current = false;
         level2Current = false;
+        gameFail = false;
         level0Pass = false;
         level1Pass = false;
         level2Pass = false;
@@ -138,5 +141,22 @@ public class LevelController : MonoBehaviour
         {
             OnStartEnd();
         }
+
+
+        if (MasterControler1.GetComponent<TimerBar>().gameFailed)
+        {
+            MasterControler1.SetActive(false);
+            endScreenImage.SetActive(true);
+            //show end screen
+
+        }
+        if (MasterControler2.GetComponent<TimerBar>().gameFailed)
+        {
+            MasterControler2.SetActive(false);
+            endScreenImage.SetActive(true);
+            //show end screen
+        }
+
     }
+
 }
