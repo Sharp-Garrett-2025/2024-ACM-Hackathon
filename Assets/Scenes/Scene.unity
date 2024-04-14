@@ -246,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 776, y: -293}
+  m_AnchoredPosition: {x: 776, y: -358}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &285410974
@@ -3169,7 +3169,7 @@ MonoBehaviour:
   - {fileID: 1666296694675004057, guid: 42be02a481afb1c4781c154bd0b534ac, type: 3}
   - {fileID: 1666296694675004057, guid: bc2a021d5014b5b4abcf4ff53871e9ec, type: 3}
   - {fileID: 1666296694675004057, guid: ca5c9a97051e163449d324c31802563a, type: 3}
-  startPosition: {x: 2.58, y: 0.22, z: 0}
+  startPosition: {x: 2.62, y: 0.22, z: 0}
   index: 0
   length: 0
   yellowSpriteArray:
@@ -3187,6 +3187,8 @@ MonoBehaviour:
   windowManager: {fileID: 1769898505}
   levelPassed: 0
   wrongArrow: {fileID: 8300000, guid: dcda429d6137be94aa45163dbb7d4a8f, type: 3}
+  correctArrow: {fileID: 8300000, guid: 11c32d70d2f1d0a488aa8a9c1d0d61d9, type: 3}
+  timeThing: {fileID: 0}
 --- !u!224 &1020324424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3529,7 +3531,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1145425385}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -4161,6 +4163,8 @@ MonoBehaviour:
   windowManager: {fileID: 1769898505}
   levelPassed: 0
   wrongArrow: {fileID: 8300000, guid: dcda429d6137be94aa45163dbb7d4a8f, type: 3}
+  correctArrow: {fileID: 8300000, guid: 11c32d70d2f1d0a488aa8a9c1d0d61d9, type: 3}
+  timeThing: {fileID: 1313971051}
 --- !u!224 &1313971049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4696,6 +4700,8 @@ MonoBehaviour:
   windowManager: {fileID: 1769898505}
   levelPassed: 0
   wrongArrow: {fileID: 8300000, guid: dcda429d6137be94aa45163dbb7d4a8f, type: 3}
+  correctArrow: {fileID: 8300000, guid: 11c32d70d2f1d0a488aa8a9c1d0d61d9, type: 3}
+  timeThing: {fileID: 1601208409}
 --- !u!224 &1601208408
 RectTransform:
   m_ObjectHideFlags: 0
