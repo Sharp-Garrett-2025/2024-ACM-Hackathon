@@ -11,7 +11,7 @@ public class MovingPopup2 : Window
     }
 
     public float movementSpeed = 2.0f;
-    public Rect screenBounds; // Customizable in the Inspector
+    public Rect screenBounds;
 
     public Vector2 movementDirection;
 
