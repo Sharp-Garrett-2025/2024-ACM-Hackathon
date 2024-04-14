@@ -123,6 +123,7 @@ public class LevelController : MonoBehaviour
         MasterControler2.SetActive(false);
         Slider2.SetActive(false);
         MasterControler2.GetComponent<TimerBar>().OnTimerStop();
+        shotClippy.SetActive(true);
         StartCoroutine(WaitForMessage());
 
     }
@@ -132,7 +133,6 @@ public class LevelController : MonoBehaviour
         //print(Time.time);
         yield return new WaitForSeconds(5);
         bossPopup.SetActive(true);
-        shotClippy.SetActive(true);
         //print(Time.time);
     }
 
