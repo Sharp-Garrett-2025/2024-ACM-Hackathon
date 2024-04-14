@@ -21,6 +21,7 @@ public class InputHandling : MonoBehaviour
     public bool levelPassed = false;
     public AudioClip wrongArrow; // Assign this in the Inspector
     private AudioSource audioSource;
+    public AudioClip correctArrow;
     public TimerBar timeThing;
 
 
@@ -45,6 +46,8 @@ public class InputHandling : MonoBehaviour
             if (index <= numArray.Length - 1 && numArray[index] == 0)
             {
                 UpdateArrow(index, true);
+                audioSource.clip = correctArrow;
+                audioSource.Play();
                 index++;
             }
             else {UpdateArrow(index, false);}
@@ -55,6 +58,8 @@ public class InputHandling : MonoBehaviour
             if (index <= numArray.Length - 1 && numArray[index] == 1)
             {
                 UpdateArrow(index, true);
+                audioSource.clip = correctArrow;
+                audioSource.Play();
                 index++;
             }
             else
@@ -66,6 +71,8 @@ public class InputHandling : MonoBehaviour
             if (index <= numArray.Length - 1 && numArray[index] == 2)
             {
                 UpdateArrow(index, true);
+                audioSource.clip = correctArrow;
+                audioSource.Play();
                 index++;
             }
             else {UpdateArrow(index, false);}
@@ -76,6 +83,8 @@ public class InputHandling : MonoBehaviour
             if (index <= numArray.Length - 1 && numArray[index] == 3)
             {
                 UpdateArrow(index, true);
+                audioSource.clip = correctArrow;
+                audioSource.Play();
                 index++;
             }
             else { UpdateArrow(index, false);}
