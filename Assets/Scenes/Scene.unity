@@ -4223,7 +4223,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windowPrefabs:
+  - {fileID: 4151061422655352220, guid: de0a3655ca18d2244a72fb0cda89fc06, type: 3}
+  - {fileID: 4151061422655352220, guid: f5ebb5fd961fa80419edb576e1af53bb, type: 3}
+  - {fileID: 4293826847887236926, guid: a1e29a0b8c6d2b84d816969f8fa5dd42, type: 3}
+  - {fileID: 7016238794912520574, guid: cb28e312adf06c54cb95f096f2094e73, type: 3}
+  - {fileID: 4151061422655352220, guid: 76962fad51b086344bdd971233d0e37b, type: 3}
+  - {fileID: 4151061422655352220, guid: 58d23ef5d778a5d4282ccf1ea33963f7, type: 3}
+  - {fileID: 4151061422655352220, guid: 2474fbde981042146b3507013c5ef1e8, type: 3}
   - {fileID: 4151061422655352220, guid: c2885b8584cc69a4296f428a7f0157bb, type: 3}
+  - {fileID: 4151061422655352220, guid: 4aacc70b4bdb7ad4f85030564ba374c1, type: 3}
   canvas: {fileID: 1346136573}
   windowManager: {fileID: 1769898505}
   maxWindows: 5
@@ -4743,6 +4751,8 @@ MonoBehaviour:
   - {fileID: 4151061422655352220, guid: 76962fad51b086344bdd971233d0e37b, type: 3}
   - {fileID: 4151061422655352220, guid: 58d23ef5d778a5d4282ccf1ea33963f7, type: 3}
   - {fileID: 4151061422655352220, guid: 2474fbde981042146b3507013c5ef1e8, type: 3}
+  - {fileID: 4151061422655352220, guid: c2885b8584cc69a4296f428a7f0157bb, type: 3}
+  - {fileID: 4151061422655352220, guid: 4aacc70b4bdb7ad4f85030564ba374c1, type: 3}
   canvas: {fileID: 1346136573}
   windowManager: {fileID: 1769898505}
   maxWindows: 8

@@ -13,7 +13,7 @@ public class MovingPopup2 : Window
     public float movementSpeed = 2.0f;
     public Rect screenBounds; // Customizable in the Inspector
 
-    private Vector2 movementDirection;
+    public Vector2 movementDirection;
 
     void Start()
     {
@@ -26,12 +26,12 @@ public class MovingPopup2 : Window
         CheckBounds();
     }
 
-    void SetRandomDirection()
+    public void SetRandomDirection()
     {
         movementDirection = Random.insideUnitCircle.normalized;
     }
 
-    void CheckBounds()
+    public void CheckBounds()
     {
         Vector3 position = transform.position;
 
