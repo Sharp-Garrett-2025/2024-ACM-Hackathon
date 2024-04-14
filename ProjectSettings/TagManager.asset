@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Windows Background
   - Water
   - UI
-  - 
-  - 
-  - 
+  - CMD Layer
+  - Arrows
+  - Popup
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Windows Background
+    uniqueID: 140931701
+    locked: 0
+  - name: UI
+    uniqueID: 2373174563
+    locked: 0
+  - name: CMD Layer
+    uniqueID: 2799027643
+    locked: 0
+  - name: Arrows
+    uniqueID: 2033781607
+    locked: 0
+  - name: Popup
+    uniqueID: 2963612931
     locked: 0

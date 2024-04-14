@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2496922402958733663}
   - component: {fileID: 1228939967283763376}
   - component: {fileID: 920327845969738370}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 5143821721167913218}
   - component: {fileID: 7899598537020940491}
   - component: {fileID: 2941201769870845316}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 7289802067975038765}
   - component: {fileID: 2613340712097246385}
   - component: {fileID: 2604956444997654451}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: OkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762096687533042536}
   - component: {fileID: 7243701092681426564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BasicPopup4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 2804354726134596892}
   - component: {fileID: 1570322946654029292}
   - component: {fileID: 1724355394888489948}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PopupSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,8 +571,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1331354365
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 907a2ea14c87094428d5ca2ff7c8a05a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

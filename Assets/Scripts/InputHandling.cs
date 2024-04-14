@@ -14,7 +14,7 @@ public class InputHandling : MonoBehaviour
     int index = 0;
     public Sprite[] yellowSpriteArray;
     public Sprite[] redSpriteArray;
-    public float xOffSet = 1.2f;
+    public float xOffSet = 0.6f;
     public float yOffSet = 0f;
     public WindowManager windowManager;
     // Start is called before the first frame update
@@ -25,8 +25,9 @@ public class InputHandling : MonoBehaviour
         numArray = arrayObject.GetNumArray();
         boolArray = arrayObject.GetBoolArray();
         instantiatedArrows = new GameObject[numArray.Length];
-        startPosition = new Vector2(-5, 0);
+        startPosition = new Vector2(-4, 2);
         Draw(ref xOffSet, ref yOffSet);
+
     }
 
     // Update is called once per frame
@@ -93,7 +94,7 @@ void Draw(ref float xOffSet, ref float yOffSet)
         // Check if the row should be changed (every 10 arrows, starting after the 10th arrow)
         if (i != 0 && (i + 1) % 10 == 0)
         {
-            yOffSet -= 1.0f; // Move the next row down
+            yOffSet -= 0.7f; // Move the next row down
             xIterator = 0; // Reset the horizontal position for the new row
         }
     }
