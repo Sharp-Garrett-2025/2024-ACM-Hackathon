@@ -29,6 +29,8 @@ public class LevelController : MonoBehaviour
     public GameObject SignInScreen;
     public GameObject CMD;
     public GameObject bossPopup;
+    public GameObject clippyPopupOne;
+    public GameObject clippyPopupTwo;
     public GameObject bossMessage;
     public GameObject endScreenImage;
     public GameObject bossNote;
@@ -77,20 +79,48 @@ public class LevelController : MonoBehaviour
         bossIcon.SetActive(false);
         bossNote.SetActive(true);
     }
+
+    public void clippyMessage()
+    {
+        StartCoroutine(WaitForMessage2());
+    }
+
+    IEnumerator WaitForMessage2()
+    {
+        //print(Time.time);
+        yield return new WaitForSeconds(5);
+        clippyPopupOne.SetActive(true);
+        //print(Time.time);
+    }
     public void OnClippyPart1()
     {
+        clippyPopupOne.SetActive(false);
         bossNote.SetActive(false);
         hackTextLevel1.SetActive(true);
+    }
+    public void clippyMessage2()
+    {
+        StartCoroutine(WaitForMessage3());
+    }
+    IEnumerator WaitForMessage3()
+    {
+        //print(Time.time);
+        yield return new WaitForSeconds(5);
+        clippyPopupTwo.SetActive(true);
+        //print(Time.time);
     }
 
     public void OnClippyPart2()
     {
+        clippyPopupTwo.SetActive(false);
         CMD.SetActive(false);
         MasterControler1.SetActive(false);
         Slider1.SetActive(false);
         MasterControler1.GetComponent<TimerBar>().OnTimerStop();
         hackTextLevel2.SetActive(true);
     }
+
+
 
     public void OnStartLevel1()
     {
@@ -135,6 +165,7 @@ public class LevelController : MonoBehaviour
         bossPopup.SetActive(true);
         //print(Time.time);
     }
+
 
     public void OnBossMessage()
     {
