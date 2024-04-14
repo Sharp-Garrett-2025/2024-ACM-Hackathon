@@ -33,6 +33,7 @@ public class LevelController : MonoBehaviour
     public GameObject endScreenImage;
     public GameObject bossNote;
     public GameObject bossIcon;
+    public GameObject shotClippy;
 
     public InputHandling level0InputHandler;
     public InputHandling level1InputHandler;
@@ -131,11 +132,13 @@ public class LevelController : MonoBehaviour
         //print(Time.time);
         yield return new WaitForSeconds(5);
         bossPopup.SetActive(true);
+        shotClippy.SetActive(true);
         //print(Time.time);
     }
 
     public void OnBossMessage()
     {
+        shotClippy.SetActive(false);
         bossPopup.SetActive(false);
         bossMessage.SetActive(true);
     }
