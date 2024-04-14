@@ -10,13 +10,14 @@ public class InputHandling : MonoBehaviour
     public GameObject[] arrowPrefabs;
     private GameObject[] instantiatedArrows;
     public Vector2 startPosition;
-    int index = 0;
+    public int index = 0;
+    public int length;
     public Sprite[] yellowSpriteArray;
     public Sprite[] redSpriteArray;
     public float xOffSet = 0.6f;
     public float yOffSet = 0f;
     public WindowManager windowManager;
-    bool levelPassed = false;
+    public bool levelPassed = false;
     // Start is called before the first frame update
 
     private void Start()
@@ -24,6 +25,7 @@ public class InputHandling : MonoBehaviour
         GameObject windowManager = GameObject.Find("Window Manager");
         numArray = arrayObject.GetNumArray();
         instantiatedArrows = new GameObject[numArray.Length];
+        length = numArray.Length;
         startPosition = new Vector2(-4, 2);
         Draw(ref xOffSet, ref yOffSet);
 

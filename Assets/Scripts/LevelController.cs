@@ -5,8 +5,11 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public ArrayCreation arrayObject;
+    public GameObject MasterControler0;
     public GameObject MasterControler1;
     public GameObject MasterControler2;
+
+    public GameObject windowManager;
 
     public bool level1Current;
     public bool level2Current;
@@ -17,22 +20,39 @@ public class LevelController : MonoBehaviour
 
     public GameObject hackTextLevel1;
     public GameObject hackTextLevel2;
+    public GameObject SignInScreen;
     public GameObject CMD;
     public GameObject bossPopup;
     public GameObject bossMessage;
 
+    public InputHandling level0InputHandler;
     public InputHandling level1InputHandler;
     public InputHandling level2InputHandler;
     // Start is called before the first frame update
     private void Awake()
     {
+        MasterControler0.SetActive(true);
         MasterControler1.SetActive(false);
         MasterControler2.SetActive(false);
+        windowManager.SetActive(false);
+        bossPopup.SetActive(false);
+        bossMessage.SetActive(false);
+        SignInScreen.SetActive(true);
         level1Current = false;
         level2Current = false;
         endCurrent = false;
         // Order of operations
         // Login screen setup code
+    }
+
+    public void OnDesktop()
+    {
+        //windowManager.SetActive(true);
+        MasterControler0.SetActive(false);
+        SignInScreen.SetActive(false);
+        // Desktop Note here
+        OnClippyPart1();
+
     }
 
     public void OnClippyPart1()
@@ -85,22 +105,27 @@ public class LevelController : MonoBehaviour
         bossPopup.SetActive(false);
         bossMessage.SetActive(true);
     }
+
+    public void OnEnd()
+    {
+        Application.Quit();
+    }
     // Update is called once per frame
     void Update()
     {
-       if(!level1InputHandler.getLeveledPassed() && !level1Current)
-       {
-            OnClippyPart1();
-       }
-
+        if (level0InputHandler.getLeveledPassed() && !level1InputHandler.getLeveledPassed() && !level2InputHandler.getLeveledPassed() && !level1Current)
+        {
+            level1Current = true;
+            OnDesktop();
+        }
         if (level1InputHandler.getLeveledPassed() && !level2InputHandler.getLeveledPassed() && !level2Current)
         {
+            level2Current = true;
             OnClippyPart2();
         }
-
         if(level2InputHandler.getLeveledPassed() && !endCurrent)
         {
-
+            OnStartEnd();
         }
 
 
