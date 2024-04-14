@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    // This file is pretty scuffed
     public ArrayCreation arrayObject;
     public GameObject MasterControler0;
     public GameObject MasterControler1;
@@ -41,7 +42,6 @@ public class LevelController : MonoBehaviour
     public InputHandling level0InputHandler;
     public InputHandling level1InputHandler;
     public InputHandling level2InputHandler;
-    // Start is called before the first frame update
     private void Awake()
     {
         MasterControler0.SetActive(true);

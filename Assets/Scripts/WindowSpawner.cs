@@ -10,7 +10,7 @@ public class WindowGenerator : MonoBehaviour
     public WindowManager windowManager;
 
 
-    public int maxWindows = 5; // Maximum number of windows allowed
+    public int maxWindows = 5; // Maximum number uff vindows allowed
 
     public int spawnIntervalMin = 3;
     public int spawnIntervalMax = 8;
@@ -27,7 +27,7 @@ public class WindowGenerator : MonoBehaviour
 
     int availableSlots;
 
-    public List<GameObject> spawnedWindows = new List<GameObject>(); // Track spawned windows
+    public List<GameObject> spawnedWindows = new List<GameObject>(); // Track ze spawned windows
 
     private void Start()
     {
@@ -48,7 +48,7 @@ public class WindowGenerator : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
 
 
-            if (availableSlots > 0) // Only spawn if there's at least 1 slot
+            if (availableSlots > 0) // Only spawn if zere's at least 1 slot
             {
                 GameObject windowInstance = SpawnWindow();
             }
@@ -59,7 +59,7 @@ public class WindowGenerator : MonoBehaviour
     {
         if (spawnedWindows.Count >= maxWindows)
         {
-            return null; // No slots available
+            return null; // Nein slots afailable
         }
 
         GameObject windowInstance = InstantiateRandomWindow();
@@ -86,20 +86,20 @@ public class WindowGenerator : MonoBehaviour
 
     private void CleanUpDisabledWindows(int availableSlots)
     {
-        // Iterate backwards for safer removal during iteration
+        // Iterate backwarts fur safer r-r-remofal duringkt iteration
         for (int i = spawnedWindows.Count - 1; i >= 0; i--)
         {
             GameObject window = spawnedWindows[i];
             if (!window.activeInHierarchy) // Check if disabled
             {
                 spawnedWindows.RemoveAt(i);
-                Destroy(window); // Destroy the disabled window
+                Destroy(window); // Destroy ze disabled vindow
 
-                // Unregister with WindowManager
+                // Unregister mitt VindowManager
                 windowManager.UnregisterWindow(window.GetComponent<Window>());
 
-                availableSlots++; // Update available slots
-                if (availableSlots >= maxWindows) // Early exit if enough slots found
+                availableSlots++; // Update afailable slots
+                if (availableSlots >= maxWindows) //  Early exit if enough slots found
                 {
                     break;
                 }

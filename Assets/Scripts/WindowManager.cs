@@ -30,14 +30,4 @@ public class WindowManager : MonoBehaviour
         windows.Remove(window);
     }
 
-    public void FocusWindow(Window window)
-    {
-        if (currentFocusedWindow != null)
-        {
-            // Do something to visually indicate loss of focus 
-        }
-
-        currentFocusedWindow = window;
-        // Do something to visually indicate focus gain
-    }
 }
