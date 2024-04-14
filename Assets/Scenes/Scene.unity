@@ -1047,7 +1047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &832502461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1086,7 +1086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &841492156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 944300185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1689434426}
+        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
+        m_MethodName: OnEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &944300185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,7 +1463,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b6d70d4def0f7db4c9f69dd64ae5dad5, type: 3}
   xOffSet: 0.6
   yOffSet: 0
-  windowManager: {fileID: 0}
+  windowManager: {fileID: 1769898505}
   levelPassed: 0
 --- !u!224 &1020324424
 RectTransform:
@@ -2457,7 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4514d7346dc9708469e7737f2ed83c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numArray: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  numArray: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1313971051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,7 +2483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 710919053}
-  gameTime: 30
+  gameTime: 20
   timerIsRunning: 0
   timeRemaining: 0
   gameFailed: 0
@@ -2610,9 +2622,9 @@ RectTransform:
   - {fileID: 870012979}
   - {fileID: 285410973}
   - {fileID: 1883123046}
-
   - {fileID: 832502461}
-
+  - {fileID: 1509555448}
+  - {fileID: 1973071513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2821,7 +2833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4514d7346dc9708469e7737f2ed83c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numArray: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  numArray: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1601208407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2890,7 +2902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 630509596}
-  gameTime: 40
+  gameTime: 30
   timerIsRunning: 0
   timeRemaining: 0
   gameFailed: 0
@@ -2950,7 +2962,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689434425}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd4bb4a8b4d885b4fbd5944c5abcb597, type: 3}
   m_Name: 
@@ -2976,7 +2988,7 @@ MonoBehaviour:
   CMD: {fileID: 2045871635}
   bossPopup: {fileID: 285410972}
   bossMessage: {fileID: 1883123045}
-  endScreenImage: {fileID: 640991763}
+  endScreenImage: {fileID: 832502460}
   bossNote: {fileID: 1509555447}
   bossIcon: {fileID: 1973071512}
   level0InputHandler: {fileID: 1020324423}
