@@ -11,6 +11,11 @@ public class LevelController : MonoBehaviour
 
     public GameObject windowManager;
 
+    public bool level0Pass;
+    public bool level1Pass;
+    public bool level2Pass;
+
+    public bool level0Current;
     public bool level1Current;
     public bool level2Current;
     public bool endCurrent;
@@ -38,8 +43,13 @@ public class LevelController : MonoBehaviour
         bossPopup.SetActive(false);
         bossMessage.SetActive(false);
         SignInScreen.SetActive(true);
+        level0Current = true; 
         level1Current = false;
         level2Current = false;
+        level0Pass = false;
+        level1Pass = false;
+        level2Pass = false;
+
         endCurrent = false;
         // Order of operations
         // Login screen setup code
@@ -113,7 +123,8 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (level0InputHandler.getLeveledPassed() && !level1InputHandler.getLeveledPassed() && !level2InputHandler.getLeveledPassed() && !level1Current)
+        level0Pass = level0InputHandler.getLeveledPassed();
+        if (level0Pass && level0Current && !level1Current)
         {
             level1Current = true;
             OnDesktop();
@@ -127,7 +138,5 @@ public class LevelController : MonoBehaviour
         {
             OnStartEnd();
         }
-
-
     }
 }

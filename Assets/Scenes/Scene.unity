@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &841492156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +884,8 @@ MonoBehaviour:
   - {fileID: 1666296694675004057, guid: 6c9c3f6ad647dee44bbeda6df571840d, type: 3}
   - {fileID: 1666296694675004057, guid: b1f2a94a0abb9ad4e8e82ca2d1bc3a1e, type: 3}
   startPosition: {x: 2.58, y: 0.22}
-
+  index: 0
+  length: 0
   yellowSpriteArray:
   - {fileID: 21300000, guid: 06020f849bb307346818271857ef33e9, type: 3}
   - {fileID: 21300000, guid: 3192ada0134bf8945bec8072ba59b383, type: 3}
@@ -2222,7 +2223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689434425}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd4bb4a8b4d885b4fbd5944c5abcb597, type: 3}
   m_Name: 
@@ -2232,6 +2233,10 @@ MonoBehaviour:
   MasterControler1: {fileID: 1313971047}
   MasterControler2: {fileID: 1601208405}
   windowManager: {fileID: 1769898504}
+  level0Pass: 0
+  level1Pass: 0
+  level2Pass: 0
+  level0Current: 0
   level1Current: 0
   level2Current: 0
   endCurrent: 0
@@ -2277,7 +2282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1769898505
 MonoBehaviour:
   m_ObjectHideFlags: 0
