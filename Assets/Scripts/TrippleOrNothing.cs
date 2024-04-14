@@ -11,6 +11,10 @@ public class TripleOrNothing : Window
     public Button Button3;
 
 
+    void Start()
+    {
+        SetupButtons();
+    }
     private void SetupButtons()
     {
         int num = UnityEngine.Random.Range(1, 4); // Correct range to include 3 as a possible value

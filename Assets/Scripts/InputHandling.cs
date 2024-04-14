@@ -21,6 +21,7 @@ public class InputHandling : MonoBehaviour
     public bool levelPassed = false;
     public AudioClip wrongArrow; // Assign this in the Inspector
     private AudioSource audioSource;
+    public TimerBar timeThing;
 
 
     // Start is called before the first frame update
@@ -139,6 +140,10 @@ void Draw(ref float xOffSet, ref float yOffSet)
                 spriteRenderer.sprite = redSpriteArray[numArray[i]];
                 audioSource.clip = wrongArrow;
                 audioSource.Play();
+                if (timeThing != null)
+                {
+                    timeThing.subtractTime();
+                }
             }
         }
     }
