@@ -9,32 +9,56 @@ public class TimerBar : MonoBehaviour
     //public Text timerText;
     public float gameTime;
 
-    private bool stopTimer;
-    void Start()
-    {
+    public bool timerIsRunning = false;  // Control whether the timer is running
 
+    public float timeRemaining;
+
+    private void Start()
+    {
+        // Initialize the timer but do not start it yet
         timerSlider.maxValue = gameTime;
         timerSlider.value = gameTime;
+        timeRemaining = gameTime; // Initialize remaining time
+    }
 
+    public void OnTimerStart()
+    {
+        timerIsRunning = true; // Start the timer
+    }
 
+    public void OnTimerStop() 
+    {
+        timerIsRunning = false; // stops the timer
     }
 
     void Update()
     {
-        float time = gameTime - Time.time;
-        int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time - minutes * 60);
-        //string textTime = string.Format("{0:0}: {0:0}", minutes, seconds);
-
-        if(time <= 0)
+        if (timerIsRunning)
         {
-            stopTimer = true;
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                UpdateTimerDisplay(timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                timeRemaining = 0;
+                timerIsRunning = false; // Stop the timer
+                UpdateTimerDisplay(timeRemaining);
+                // Perform any actions after the timer runs out
+            }
         }
-        else
-        {
-            //timerText.text = textTime;
-            timerSlider.value = time;
+    }
 
-        }
+    private void UpdateTimerDisplay(float timeToDisplay)
+    {
+        timerSlider.value = timeToDisplay;
+
+        //int minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        //int seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        // Optionally update the text display if you uncomment the Text timerText and its reference
+        //timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

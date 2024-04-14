@@ -27,7 +27,7 @@ public class WindowGenerator : MonoBehaviour
 
     int availableSlots;
 
-    private List<GameObject> spawnedWindows = new List<GameObject>(); // Track spawned windows
+    public List<GameObject> spawnedWindows = new List<GameObject>(); // Track spawned windows
 
     private void Start()
     {
@@ -51,10 +51,6 @@ public class WindowGenerator : MonoBehaviour
             if (availableSlots > 0) // Only spawn if there's at least 1 slot
             {
                 GameObject windowInstance = SpawnWindow();
-                if (windowInstance != null)
-                {
-                    spawnedWindows.Add(windowInstance);
-                }
             }
         }
     }

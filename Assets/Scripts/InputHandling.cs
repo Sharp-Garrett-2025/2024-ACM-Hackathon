@@ -6,7 +6,6 @@ using UnityEngine.Device;
 public class InputHandling : MonoBehaviour
 {
     public ArrayCreation arrayObject;
-    public bool[] boolArray;
     public int[] numArray;
     public GameObject[] arrowPrefabs;
     private GameObject[] instantiatedArrows;
@@ -17,13 +16,13 @@ public class InputHandling : MonoBehaviour
     public float xOffSet = 0.6f;
     public float yOffSet = 0f;
     public WindowManager windowManager;
+    bool levelPassed = false;
     // Start is called before the first frame update
 
     private void Start()
     {
         GameObject windowManager = GameObject.Find("Window Manager");
         numArray = arrayObject.GetNumArray();
-        boolArray = arrayObject.GetBoolArray();
         instantiatedArrows = new GameObject[numArray.Length];
         startPosition = new Vector2(-4, 2);
         Draw(ref xOffSet, ref yOffSet);
@@ -38,7 +37,6 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 0)
             {
-                boolArray[index] = true;
                 UpdateArrow(index, true);
                 index++;
             }
@@ -48,7 +46,6 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 1)
             {
-                boolArray[index] = true;
                 UpdateArrow(index, true);
                 index++;
             }
@@ -59,7 +56,6 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 2)
             {
-                boolArray[index] = true;
                 UpdateArrow(index, true);
                 index++;
             }
@@ -69,11 +65,14 @@ public class InputHandling : MonoBehaviour
         {
             if (index <= numArray.Length - 1 && numArray[index] == 3)
             {
-                boolArray[index] = true;
                 UpdateArrow(index, true);
                 index++;
             }
             else { UpdateArrow(index, false);}
+        }
+        if(index == numArray.Length)
+        {
+            levelPassed = true;
         }
     }
 void Draw(ref float xOffSet, ref float yOffSet)
@@ -97,6 +96,7 @@ void Draw(ref float xOffSet, ref float yOffSet)
             yOffSet -= 0.7f; // Move the next row down
             xIterator = 0; // Reset the horizontal position for the new row
         }
+        
     }
 }
 
@@ -126,6 +126,11 @@ void Draw(ref float xOffSet, ref float yOffSet)
                 spriteRenderer.sprite = redSpriteArray[numArray[i]];
             }
         }
+    }
+
+    public bool getLeveledPassed()
+    {
+        return levelPassed;
     }
 
 }
