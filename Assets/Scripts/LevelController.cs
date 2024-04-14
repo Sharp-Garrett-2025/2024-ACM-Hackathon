@@ -29,6 +29,8 @@ public class LevelController : MonoBehaviour
     public GameObject CMD;
     public GameObject bossPopup;
     public GameObject bossMessage;
+    public GameObject bossNote;
+    public GameObject bossIcon;
 
     public InputHandling level0InputHandler;
     public InputHandling level1InputHandler;
@@ -43,6 +45,8 @@ public class LevelController : MonoBehaviour
         bossPopup.SetActive(false);
         bossMessage.SetActive(false);
         SignInScreen.SetActive(true);
+        bossIcon.SetActive(false);
+        CMD.SetActive(false);
         level0Current = true; 
         level1Current = false;
         level2Current = false;
@@ -61,17 +65,23 @@ public class LevelController : MonoBehaviour
         MasterControler0.SetActive(false);
         SignInScreen.SetActive(false);
         // Desktop Note here
-        OnClippyPart1();
+        bossIcon.SetActive(true);
 
     }
-
+    public void OnBossNote()
+    {
+        bossIcon.SetActive(false);
+        bossNote.SetActive(true);
+    }
     public void OnClippyPart1()
     {
+        bossNote.SetActive(false);
         hackTextLevel1.SetActive(true);
     }
 
     public void OnClippyPart2()
     {
+        CMD.SetActive(false);
         MasterControler1.SetActive(false);
         Slider1.SetActive(false);
         MasterControler1.GetComponent<TimerBar>().OnTimerStop();
@@ -83,13 +93,16 @@ public class LevelController : MonoBehaviour
         Debug.Log("Level1 Started");
         level1Current = true;
         hackTextLevel1.SetActive(false);
+        windowManager.SetActive(true);
         MasterControler1.SetActive(true);
         Slider1.SetActive(true);
+        CMD.SetActive(true);
         MasterControler1.GetComponent<TimerBar>().OnTimerStart();
     }
 
     public void OnStartLevel2()
     {
+        CMD.SetActive(true);
         Debug.Log("Level1 Started");
         level2Current = true;
         hackTextLevel2.SetActive(false);
@@ -106,8 +119,16 @@ public class LevelController : MonoBehaviour
         MasterControler2.SetActive(false);
         Slider2.SetActive(false);
         MasterControler2.GetComponent<TimerBar>().OnTimerStop();
-        // Wait for about 4 seconds
+        StartCoroutine(WaitForMessage());
+
+    }
+
+    IEnumerator WaitForMessage()
+    {
+        //print(Time.time);
+        yield return new WaitForSeconds(5);
         bossPopup.SetActive(true);
+        //print(Time.time);
     }
 
     public void OnBossMessage()
@@ -118,6 +139,7 @@ public class LevelController : MonoBehaviour
 
     public void OnEnd()
     {
+        Debug.Log("Close Game");
         Application.Quit();
     }
     // Update is called once per frame
