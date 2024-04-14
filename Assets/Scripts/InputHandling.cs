@@ -18,6 +18,11 @@ public class InputHandling : MonoBehaviour
     public float yOffSet = 0f;
     public WindowManager windowManager;
     public bool levelPassed = false;
+    public AudioClip wrongArrow; // Assign this in the Inspector
+    public AudioClip blockSound;
+    private AudioSource audioSource;
+
+
     // Start is called before the first frame update
 
     private void Start()
@@ -27,7 +32,7 @@ public class InputHandling : MonoBehaviour
         instantiatedArrows = new GameObject[numArray.Length];
         length = numArray.Length;
         Draw(ref xOffSet, ref yOffSet);
-
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +48,7 @@ public class InputHandling : MonoBehaviour
             }
             else {UpdateArrow(index, false);}
         }
+        //else {audioSourceBlock.PlayOneShot(blockSound);}
         if (Input.GetKeyDown(KeyCode.A) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 1)
@@ -53,7 +59,8 @@ public class InputHandling : MonoBehaviour
             else
             {UpdateArrow(index, false);}
         }
-        if(Input.GetKeyDown(KeyCode.S) && windowManager.popupActive != true)
+        //else { audioSourceBlock.PlayOneShot(blockSound);}
+        if (Input.GetKeyDown(KeyCode.S) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 2)
             {
@@ -62,7 +69,8 @@ public class InputHandling : MonoBehaviour
             }
             else {UpdateArrow(index, false);}
         }
-        if( Input.GetKeyDown(KeyCode.D) && windowManager.popupActive != true)
+       // else { audioSourceBlock.PlayOneShot(blockSound); }
+        if ( Input.GetKeyDown(KeyCode.D) && windowManager.popupActive != true)
         {
             if (index <= numArray.Length - 1 && numArray[index] == 3)
             {
@@ -71,7 +79,8 @@ public class InputHandling : MonoBehaviour
             }
             else { UpdateArrow(index, false);}
         }
-        if(index == numArray.Length)
+        //else { audioSourceBlock.PlayOneShot(blockSound); }
+        if (index == numArray.Length)
         {
             levelPassed = true;
         }
@@ -125,6 +134,8 @@ void Draw(ref float xOffSet, ref float yOffSet)
             else
             {
                 spriteRenderer.sprite = redSpriteArray[numArray[i]];
+                audioSource.clip = wrongArrow;
+                audioSource.Play();
             }
         }
     }
