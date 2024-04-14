@@ -11,35 +11,53 @@ public class LevelController : MonoBehaviour
     public GameObject Slider1;
     public GameObject Slider2;
 
+    public GameObject hackTextLevel1;
+    public GameObject hackTextLevel2;
+
     public InputHandling level1InputHandler;
     public InputHandling level2InputHandler;
     // Start is called before the first frame update
     private void Awake()
     {
-        MasterControler1.GetComponent<TimerBar>().OnTimerStart();
         MasterControler2.SetActive(false);
         // Order of operations
         // Login screen setup code
     }
 
+    public void OnClippyPart1()
+    {
+
+    }
+
+    public void OnClippyPart2()
+    {
+
+    }
+
+    public void OnStartLevel1()
+    {
+        MasterControler1.SetActive(true);
+        Slider1.SetActive(true);
+        MasterControler1.GetComponent<TimerBar>().OnTimerStart();
+    }
+
+    public void OnStartLevel2()
+    {
+        MasterControler2.SetActive(true);
+        Slider2.SetActive(true);
+        MasterControler2.GetComponent<TimerBar>().OnTimerStart();
+    }
     // Update is called once per frame
     void Update()
     {
-       // if(LoginScreenComplete && boolArray[1] == false)
-       // {
-             //Level one code
-       // }
+       if(!level1InputHandler.getLeveledPassed())
+       {
+            OnClippyPart1();
+       }
 
-         if (level1InputHandler.getLeveledPassed() && !level2InputHandler.getLeveledPassed())
-         {
-            MasterControler1.SetActive(false);
-            Slider1.SetActive(false);
-            MasterControler1.GetComponent<TimerBar>().OnTimerStop();
-
-            MasterControler2.SetActive(true);
-            Slider2.SetActive(true);
-            MasterControler2.GetComponent<TimerBar>().OnTimerStart();
-            // Level two code
+        if (level1InputHandler.getLeveledPassed() && !level2InputHandler.getLeveledPassed())
+        {
+            OnClippyPart2();
         }
 
         if(level2InputHandler.getLeveledPassed())
