@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 4602559412107662753}
   - component: {fileID: 5143821721167913218}
   - component: {fileID: 7899598537020940491}
-  - component: {fileID: 2941201769870845316}
   m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
@@ -254,19 +253,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2941201769870845316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4660351391699100326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ab9207965182a4d9e073eb6aa6f81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!1 &6814432315144558188
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +589,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2804354726134596892}
   - component: {fileID: 1570322946654029292}
-  - component: {fileID: 1724355394888489948}
   m_Layer: 8
   m_Name: PopupSprite
   m_TagString: Untagged
@@ -682,16 +667,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1724355394888489948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7017721891391603791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ab9207965182a4d9e073eb6aa6f81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
